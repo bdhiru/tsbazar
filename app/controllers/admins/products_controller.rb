@@ -42,7 +42,7 @@ class Admins::ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to admins_product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to admins_product_path, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Admins::ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :product_category_id, :price, :ptype, :size, :color)
+      params.require(:product).permit(:name, :product_category_id, :price, :ptype, :size, :color, image: [:image])
     end
 end

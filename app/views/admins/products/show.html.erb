@@ -4,6 +4,7 @@
 </div>
 
 <dl class="dl-horizontal">
+  
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @product.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
@@ -14,6 +15,12 @@
   <dd><%= @product.size %></dd>
   <dt><strong><%= model_class.human_attribute_name(:color) %>:</strong></dt>
   <dd><%= @product.color %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd>
+  <% @product.images.each do |image|%>
+    <%= image_tag image.image_path %>
+  <% end%>
+  </dd>
   <dt><strong><%= model_class.human_attribute_name(:product_category_id) %>:</strong></dt>
   <dd><%= @product.product_category_id %></dd>
 </dl>
